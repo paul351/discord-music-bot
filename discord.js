@@ -19,13 +19,11 @@ client.on("messageCreate", async message => {
         const args = message.content.split("-play");
         const url = args[1];
         const voiceChannel = message.member.voice.channel;
-        const channel = client.channels.cache.get(voiceChannel.id)
-        const vdE = await ytS(url)
-
         if (!voiceChannel) {
             return message.reply("You need to be in a voice channel to play music.");
         }
-
+        const channel = client.channels.cache.get(voiceChannel.id)
+        const vdE = await ytS(url)
         const stream = ytdl(vdE.all[0].url, { filter: "audioonly",
         fmt: "mp3",
         highWaterMark: 1 << 62,
