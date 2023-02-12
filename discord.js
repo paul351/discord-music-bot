@@ -1,7 +1,6 @@
 const ytdl = require("ytdl-core");
 const { joinVoiceChannel, createAudioPlayer, createAudioResource, StreamType } = require('@discordjs/voice');
 const ytS = require("yt-search")
-const config = require("./config.json")
 
 const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({ intents: [32767, GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildVoiceStates] });
@@ -54,10 +53,6 @@ client.on("messageCreate", async message => {
 
     if (message.content.startsWith("-stop")) {
         player.stop();
-    }
-    let pavk = "Pavk5#3772"
-    if (message.content.startsWith("-pavk")) {
-        return message.reply(client.user.tag);
     }
 });
 
